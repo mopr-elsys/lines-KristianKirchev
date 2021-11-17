@@ -33,10 +33,10 @@ struct Line {
 
     Line(double A = 0, double B = 0, double C = 0) : A(A), B(B), C(C) {}
 
-    Line(const Point& p1, const Point& p2) const{
-        B = p2.x - p1.x;
-        A = p1.y - p2.y;
-        C = -(A * p1.x + B * p1.y);
+    Line(const Point& p1, const Point& p2){
+        this->A =-p2.y + p1.y;
+        this->B = p2.x - p1.x;
+        this->C = this->B * p1.y - this->A * p1.x;
     }
 
     bool parallel(const Line& other) const {
